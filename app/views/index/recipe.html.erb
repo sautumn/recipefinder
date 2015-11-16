@@ -1,0 +1,67 @@
+
+<!-- jumbotron title thingy -->
+
+<div class="jumbotron" style:"width:100%">
+
+    <h1>Food2Fork API Demo</h1> 
+    <h3>Utilizing the Food2Fork API to implement a simple search.</h3>
+  </div>
+
+<!-- Search box -->
+<center><table style="width:99%">
+<td>
+  <h3>Searching for <b><%= @search_term %></b> in Food2Fork recipes...</h3>
+</td>
+
+<td align="right">
+  <form id="search" class="form-inline">
+      <input type="text" id="search_box" class="form-control" />
+      <input type="button" id="button" value="Submit" class="btn btn-primary" />
+  </form>
+</td>
+</table>
+</center>
+
+
+<!--If recipe list is not nil/search was succesful, create 'pins' -->
+<% if @recipe_list != nil %>
+<div class="container">
+  <div class="row">
+    <section id="pinBoot">
+    	<% @recipe_list.each do |recipe| %> 
+	    	<!-- for each recipe -->
+	      	<article class="white-panel"><%= image_tag(recipe["image_url"])%>
+	      	<!-- name of recipe and link to url-->
+	      	<!-- declaring variable for the url of the recipe  -->
+	      	<% urlname = recipe["source_url"] %>
+	        <h4><a href= <%= urlname %> target="_blank"><%= recipe["title"] %></a></h4>
+	        <!-- Publisher and link to publisher of recipe -->
+	        <% pubname = recipe["publisher_url"] %>
+	        <p>Publisher: <a href= <%= pubname %> target="_blank"> <%= recipe["publisher"] %> </a></p>
+	      </article>
+	    <% end %>
+	<% end %>
+	</div>
+</div>
+
+<!-- If the Search was unsuccessful, let user know to try again -->
+<% if @recipe_list.empty? %>
+  <center><h2>Sorry. Your search for <b><%= @search_term %></b> was unsuccessful. Please try again!</h2></center>
+<% end %>
+<br><br><br><br>
+<div class="well">
+  Things to do:
+  <ul>
+  	<li>Remove the default and allow for no search to be present.</li>
+  	<li>Use AJAX and make it so the results load on the same page.</li>
+  	<li>Write some code that corrects the capitalization of recipes.</li>
+  	<li>Make it so more than 30 recipes are present at a time (ie load more).</li>
+  	<li>Have search options at the top. (Search by popularity, etc.)</li>
+  	</ul>
+  	Things that almost killed me:
+  	<ul>
+  	<li>ENV variables only work for the terminal you put them in! Must set them in the server terminal!</li>
+  	<li>When editing your Lib files, restart your server!</li>
+  	</ul>
+  </div>
+</div>
