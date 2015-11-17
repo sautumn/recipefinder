@@ -1,5 +1,11 @@
-Hosted at https://f2f-recipefinder.herokuapp.com/ .
+**Recipefinder**
+
+Hosted at https://f2f-recipefinder.herokuapp.com/
+
+
 Part of a coursera ruby on rails course/WWC-Bham group.
 
 Thanks for looking!
+
+
 -Autumn
