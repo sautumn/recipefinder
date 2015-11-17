@@ -1,4 +1,4 @@
-**Recipefinder**
+*Recipefinder*
 
 Hosted at https://f2f-recipefinder.herokuapp.com/
 
